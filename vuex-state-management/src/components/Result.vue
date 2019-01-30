@@ -1,9 +1,15 @@
 <template>
-    <p>Counter is: {{ counter }}</p>
+  <p>Counter is: {{ counter }}</p>
 </template>
 
 <script>
-    export default {
-        props: ['counter']
-    }
+import { mapState } from "vuex";
+
+export default {
+  computed: {
+    ...mapState("counter", {
+      counter: state => state.counter
+    })
+  }
+};
 </script>
